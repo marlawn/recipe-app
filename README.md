@@ -1,4 +1,5 @@
 # Recipe App
+Full-stack application which allows users to add/review recipes
 
 ## Frontend
 * React.js (Vite)
