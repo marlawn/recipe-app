@@ -5,7 +5,7 @@ const useCreateRecipe = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const createRecipe = async (recipeData) => {
+    const createRecipe = async (recipeData : any) => {
         setLoading(true);
         try {
             const response = await api.post('/recipes/', recipeData ); 
