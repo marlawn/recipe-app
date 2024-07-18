@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import { getRecipes } from "../api";
+import { RecipeDescription } from "./RecipeDescription";
+
+interface Recipe {
+  recipe_name: string;
+  description: string;
+}
 
 export const Recipes: React.FC = () => {
 
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+
   useEffect(() => {
     getRecipes()
       .then(response => {
@@ -12,18 +20,26 @@ export const Recipes: React.FC = () => {
       .catch(e => {
         console.error('error fetching recipes:', e);
       })
-  })
+  }, []);
+
+  const handleClick = (recipe : any) => {
+    setSelectedRecipe(recipe);
+  }
+
+  const handleClose = () => {
+    setSelectedRecipe(null);
+  }
 
   return (
-    <>
+    <div>
       {recipes.map(recipe => (
-        <div className="p-5 border-4">
+        <div className="p-5 border-4 cursor-pointer" onClick={() => handleClick(recipe)}>
           <h1 className="text-2xl font-semibold">{recipe.recipe_name}</h1>
           <p className="italic">{recipe.description}</p>
         </div>
       ))}
-      <span className="border-b-4" />
-    </>
+      {selectedRecipe && <RecipeDescription recipe={selectedRecipe} onClose={handleClose} />}
+    </div>
   )
 }
 
