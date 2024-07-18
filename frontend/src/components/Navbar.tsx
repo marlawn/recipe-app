@@ -1,5 +1,4 @@
 
-
 export const Navbar = ({ onToggleShowHome } : { onToggleShowHome: any}) => {
   return (
     <div className="bg-gray-400 flex flex-row justify-between p-7">
