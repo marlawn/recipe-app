@@ -13,6 +13,7 @@ export const AddRecipe = ({ onToggleShowHome } : { onToggleShowHome: any}) => {
             <div className='flex justify-center'><input className='w-2/3 align-middle border-4 rounded-xl border-white' /></div>
             <p className='flex justify-center text-xl'>Instructions:</p>
             <div className='flex justify-center'><input className='w-2/3 align-middle border-4 rounded-xl border-white' /></div>
+            <button className='absolute bottom-0 right-0 left-0 m-6 font-bold text-red-800 text-2xl'>ADD</button>
         </div>
     </ div>
   )
