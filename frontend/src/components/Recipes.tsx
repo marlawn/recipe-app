@@ -47,13 +47,3 @@ export const Recipes: React.FC = () => {
     </div>
   )
 }
-
-// FULL RECIPE
-{/* <div className="p-5 border-4">
-  <h1 className="text-2xl font-semibold">{recipe.recipe_name}</h1>
-  <p className="italic mb-2">{recipe.description}</p>
-  <ul>
-    <li><h2 className="font-semibold">Ingredients: </h2>{recipe.ingredients}</li>
-    <li><h2 className="font-semibold">Instructions: </h2>{recipe.instructions}</li>
-  </ul>
-</div> */}
