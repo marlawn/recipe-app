@@ -1,26 +1,38 @@
-import useFetchRecipeID from "../hooks/useFetchRecipeID";
-import useFetchRecipes from "../hooks/useFetchRecipes";
+import { useEffect, useState } from "react";
+import { getRecipes } from "../api";
 
+export const Recipes: React.FC = () => {
 
-export const Recipes = () => {
-  const { recipes, loading, error } = useFetchRecipes();
-  const recipe = useFetchRecipeID(1).recipe;
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
+  const [recipes, setRecipes] = useState([]);
+  useEffect(() => {
+    getRecipes()
+      .then(response => {
+        setRecipes(response.data);
+      })
+      .catch(e => {
+        console.error('error fetching recipes:', e);
+      })
+  })
 
   return (
     <>
-    <div>{recipe}</div>
-    <h1>Recipes</h1>
-    <ul className="p-5 border-4">
-        {recipes.map(recipe => (
-          <li key={recipe['id']}>{recipe['title']}</li>
-        ))}
-        {/* <h1 className="text-2xl font-semibold">Title</h1>
-        <p>Description</p> */}
-    </ul>
+      {recipes.map(recipe => (
+        <div className="p-5 border-4">
+          <h1 className="text-2xl font-semibold">{recipe.recipe_name}</h1>
+          <p className="italic">{recipe.description}</p>
+        </div>
+      ))}
+      <span className="border-b-4" />
     </>
   )
 }
+
+// FULL RECIPE
+{/* <div className="p-5 border-4">
+  <h1 className="text-2xl font-semibold">{recipe.recipe_name}</h1>
+  <p className="italic mb-2">{recipe.description}</p>
+  <ul>
+    <li><h2 className="font-semibold">Ingredients: </h2>{recipe.ingredients}</li>
+    <li><h2 className="font-semibold">Instructions: </h2>{recipe.instructions}</li>
+  </ul>
+</div> */}

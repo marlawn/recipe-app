@@ -1,19 +1,27 @@
 import axios from 'axios';
 
-const API_URL = "http://ec2-18-219-19-210.us-east-2.compute.amazonaws.com:8000/api"
+const API_URL = "http://ec2-18-219-19-210.us-east-2.compute.amazonaws.com:8000/api";
 
-const api = axios.create({
-    baseURL: API_URL,
-})
-
-export const getReviewForRecipe = async (recipeID : any) => {
-    try {
-        const response = await api.get("/reviews/?recipe_id=${recipe_id}");
-        return response.data;
-    } catch (e) {
-        console.error('Error fetching reviews:', e);
-        throw e;
-    }
+// WORKS
+export const getRecipes = () => {
+    return axios.get(`${API_URL}/recipes/`);
 }
 
-export default api;
+// WORKS
+export const getRecipeId = (id : number) => {
+    return axios.get(`${API_URL}/recipes/${id}/`);
+}
+
+// WORKS
+export const addRecipe = (recipeData : any) => {
+    return axios.post(`${API_URL}/recipes/`, recipeData);
+}
+
+// WORKS
+export const deleteRecipe = (id : number) => {
+    return axios.delete(`${API_URL}/recipes/${id}`,);
+}
+
+export const addReview = (reviewData : any) => {
+    return axios.post(`${API_URL}/reviews/`, reviewData);
+}
