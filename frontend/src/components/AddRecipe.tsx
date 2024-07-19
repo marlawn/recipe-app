@@ -16,7 +16,7 @@ export const AddRecipe = ({ onToggleShowHome } : { onToggleShowHome: any}) => {
     }
 
     try {
-      const response = await addRecipe(newRecipe);
+      await addRecipe(newRecipe);
       setRecipeName('');
       setDescription('');
       setIngredients('');
