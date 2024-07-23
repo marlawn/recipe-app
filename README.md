@@ -18,3 +18,5 @@ http://frontend-recipe-app-marlawn.s3-website.us-east-2.amazonaws.com/
 * TypeScript
 * Python
 * HTML/CSS
+
+[Roulettech Demo.pdf](https://github.com/user-attachments/files/16352389/Roulettech.Demo.pdf)
