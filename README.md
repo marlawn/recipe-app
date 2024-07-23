@@ -1,5 +1,6 @@
 # Recipe App
 Full-stack application which allows users to add/review recipes
+http://frontend-recipe-app-marlawn.s3-website.us-east-2.amazonaws.com/
 
 ## Frontend
 * React.js (Vite)
