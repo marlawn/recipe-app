@@ -8,6 +8,7 @@ http://frontend-recipe-app-marlawn.s3-website.us-east-2.amazonaws.com/
 
 ## Backend
 * Django
+* SQLite
 
 ## Deployment
 * AWS EC2 for backend
